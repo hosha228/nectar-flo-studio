@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="uk" class="no-prices">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nectar Flo Studio — квіткова студія в Одесі</title>
+  <meta name="description" content="Nectar Flo Studio — квіткова студія в Одесі. Букети з характером сезону, квіткова підписка, B2B, оформлення подій і фасадів. Замовлення в Instagram Direct, щодня з 10 до 19.">
+  <meta name="theme-color" content="#f2f1ee">
+  <meta name="color-scheme" content="light">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:site_name" content="Nectar Flo Studio">
+  <meta property="og:title" content="Nectar Flo Studio — квіткова студія в Одесі">
+  <meta property="og:description" content="Букети з характером сезону, квіткова підписка, оформлення подій і фасадів. Замовлення в Direct.">
+  <meta property="og:image" content="assets/photos/og.jpg" data-og-image>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/unbounded-300-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/photos/spooky-1.jpg">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=14">
+  <link rel="stylesheet" href="assets/css/style.css?v=14">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти до змісту</a>
+
+  <!-- Інтро: лілія розкривається, коло відкриває сайт (раз за сесію; вимкнене при «менше руху») -->
+  <div class="intro" aria-hidden="true" data-intro>
+    <div class="intro__mark">
+      <svg class="intro__lily" viewBox="-50 -50 100 100"><g fill="currentColor"><path class="p" style="--i:0" d="M0 -4 C 7 -14 8 -30 0 -48 C -8 -30 -7 -14 0 -4 Z"/><path class="p" style="--i:1" d="M0 -4 C 7 -14 8 -30 0 -48 C -8 -30 -7 -14 0 -4 Z"/><path class="p" style="--i:2" d="M0 -4 C 7 -14 8 -30 0 -48 C -8 -30 -7 -14 0 -4 Z"/><path class="p" style="--i:3" d="M0 -4 C 7 -14 8 -30 0 -48 C -8 -30 -7 -14 0 -4 Z"/><path class="p" style="--i:4" d="M0 -4 C 7 -14 8 -30 0 -48 C -8 -30 -7 -14 0 -4 Z"/><path class="p" style="--i:5" d="M0 -4 C 7 -14 8 -30 0 -48 C -8 -30 -7 -14 0 -4 Z"/><circle class="c" r="5"/></g></svg>
+      <p class="intro__word">nectar<span>квіткова студія · одеса</span></p>
+    </div>
+  </div>
+  <div class="cursor" aria-hidden="true" data-cursor><span>дивитись</span></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="lily" viewBox="-50 -50 100 100">
+      <g fill="currentColor">
+        <path d="M0 -4 C 7 -14 8 -30 0 -48 C -8 -30 -7 -14 0 -4 Z"/>
+        <path d="M0 -4 C 7 -14 8 -30 0 -48 C -8 -30 -7 -14 0 -4 Z" transform="rotate(60)"/>
+        <path d="M0 -4 C 7 -14 8 -30 0 -48 C -8 -30 -7 -14 0 -4 Z" transform="rotate(120)"/>
+        <path d="M0 -4 C 7 -14 8 -30 0 -48 C -8 -30 -7 -14 0 -4 Z" transform="rotate(180)"/>
+        <path d="M0 -4 C 7 -14 8 -30 0 -48 C -8 -30 -7 -14 0 -4 Z" transform="rotate(240)"/>
+        <path d="M0 -4 C 7 -14 8 -30 0 -48 C -8 -30 -7 -14 0 -4 Z" transform="rotate(300)"/>
+        <circle r="5"/>
+      </g>
+    </symbol>
+    <symbol id="arrow-ne" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="arrow-down" viewBox="0 0 24 24"><path d="M12 5v14m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="arrow-l" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="arrow-r" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <!-- ============ ШАПКА ============ -->
+  <header class="header" data-header>
+    <div class="header__inner">
+      <a class="brand" href="#top" aria-label="Nectar Flo Studio — на початок сторінки">
+        <span class="brand__dot" aria-hidden="true"><svg><use href="#lily"/></svg></span>
+        <span class="brand__word">nectar<span class="brand__sub">flo studio</span></span>
+      </a>
+      <nav class="nav" aria-label="Основна навігація">
+        <ul class="nav__list">
+          <li><a href="#drop">роботи</a></li>
+          <li><a href="#stories">з життя студії</a></li>
+          <li><a href="#subscription">підписка</a></li>
+          <li><a href="#events">події та b2b</a></li>
+          <li><a href="#order">замовити</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--red btn--sm header__cta" href="https://ig.me/m/nectar.flostudio" target="_blank" rel="noopener" data-contact="direct">написати в direct <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>
+        <span class="menu-btn__label">меню</span><span class="menu-btn__lines" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Меню" hidden data-menu>
+    <div class="menu__top">
+      <span class="mono">nectar flo studio · одеса</span>
+      <button class="menu__close" type="button" data-menu-close>закрити</button>
+    </div>
+    <nav aria-label="Мобільна навігація">
+      <ol class="menu__list">
+        <li><a href="#drop"><span class="mono">01</span>роботи сезону</a></li>
+        <li><a href="#stories"><span class="mono">02</span>з життя студії</a></li>
+        <li><a href="#subscription"><span class="mono">03</span>квіткова підписка</a></li>
+        <li><a href="#events"><span class="mono">04</span>події, b2b, фасади</a></li>
+        <li><a href="#workshops"><span class="mono">05</span>майстер-класи</a></li>
+        <li><a href="#order"><span class="mono">06</span>замовити</a></li>
+      </ol>
+    </nav>
+    <div class="menu__bottom">
+      <a class="btn btn--red" href="https://ig.me/m/nectar.flostudio" target="_blank" rel="noopener" data-contact="direct">написати в direct <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>
+      <p class="mono">щодня з 10 до 19</p>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ============ ПЕРШИЙ ЕКРАН ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__text">
+        <p class="kicker reveal"><svg class="i i--lily" aria-hidden="true"><use href="#lily"/></svg> квіткова студія · одеса</p>
+        <h1 class="hero__title reveal" id="hero-title">
+          <span class="line">букети <span class="pill" aria-hidden="true"><img src="assets/photos/chrysanth.jpg" alt=""></span></span>
+          <span class="line">з характером</span>
+          <span class="line line--accent"><span class="pill pill--b" aria-hidden="true"><img src="assets/photos/autumn-1.jpg" alt=""></span> сезону</span>
+        </h1>
+        <p class="hero__lead reveal">Nectar Flo Studio збирає букети й композиції, веде квіткову підписку, працює з бізнесом та оформлює події й фасади. Замовлення — у Direct, щодня з 10 до 19.</p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--ink" href="#drop">обрати букет <svg class="i" aria-hidden="true"><use href="#arrow-down"/></svg></a>
+          <a class="btn btn--ghost" href="#order">зібрати замовлення <svg class="i" aria-hidden="true"><use href="#arrow-down"/></svg></a>
+        </div>
+        <ul class="hero__facts reveal" aria-label="Послуги студії">
+          <li><span class="mono">букети</span></li>
+          <li><span class="mono">квіткова підписка</span></li>
+          <li><span class="mono">b2b</span></li>
+          <li><span class="mono">події та фасади</span></li>
+        </ul>
+      </div>
+
+      <div class="hero__media">
+        <figure class="frame hero__main unveil">
+          <img src="assets/photos/spooky-1.jpg" width="1200" height="1600" fetchpriority="high" alt="Дівчина в чорному сидить на мокрому асфальті з букетом червоних антуріумів, кремових хризантем і помаранчевого евкаліпта">
+          <figcaption class="cap"><span>№ 01</span> букети «spooky», жовтень 2026</figcaption>
+        </figure>
+        <figure class="frame hero__aside unveil">
+          <img src="assets/photos/kenzan-2.jpg" width="1200" height="1600" loading="lazy" alt="Білі кали на кензані в сталевій чаші на дубовому столі">
+          <figcaption class="cap"><span>№ 02</span> кали на кензані</figcaption>
+        </figure>
+        <span class="sticker sticker--pill hero__sticker" aria-hidden="true">пишіть у direct 💌</span>
+        <div class="stamp" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <defs><path id="stamp-circle" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+            <circle cx="100" cy="100" r="98" class="stamp__bg"/>
+            <g class="stamp__ring"><text><textPath href="#stamp-circle" textLength="458" lengthAdjust="spacing">квіти одеса ✶ щодня 10–19 ✶ nectar flo studio ✶ </textPath></text></g>
+            <use href="#lily" x="62" y="62" width="76" height="76" class="stamp__lily"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>різдвяне передзамовлення</span><svg><use href="#lily"/></svg>
+        <span>осінні букети</span><svg><use href="#lily"/></svg>
+        <span>композиції на кензані</span><svg><use href="#lily"/></svg>
+        <span>весілля 2026</span><svg><use href="#lily"/></svg>
+        <span>квіткова підписка</span><svg><use href="#lily"/></svg>
+        <span>оформлення фасадів</span><svg><use href="#lily"/></svg>
+        <span>майстер-класи</span><svg><use href="#lily"/></svg>
+      </div>
+    </div>
+
+    <!-- ============ РОБОТИ / КАТАЛОГ ============ -->
+    <section class="section drop" id="drop" aria-labelledby="drop-title">
+      <header class="section__head section__head--art">
+        <p class="mono section__no">01 / роботи</p>
+        <h2 class="section__title reveal" id="drop-title">роботи сезону</h2>
+        <p class="section__lead reveal">Сезонні серії студії з Instagram. Ми працюємо з сезонними квітами, тож кожен букет трохи інший — зберемо схожий під ваш настрій. Вартість і наявність уточнюйте в Direct.</p>
+        <svg class="lineart lineart--anthurium draw" viewBox="0 0 140 300" aria-hidden="true">
+          <path pathLength="1" d="M70 40 C 40 10, 5 30, 15 70 C 22 100, 55 115, 70 140 C 85 115, 118 100, 125 70 C 135 30, 100 10, 70 40 Z"/>
+          <path pathLength="1" d="M70 70 C 78 50, 92 34, 112 24"/>
+          <path pathLength="1" d="M70 46 C 68 80, 69 110, 70 136"/>
+          <path pathLength="1" d="M70 140 C 72 190, 62 240, 70 300"/>
+          <path pathLength="1" d="M68 230 C 40 214, 28 190, 30 168 C 50 178, 64 200, 68 230"/>
+        </svg>
+      </header>
+      <div class="filters" role="group" aria-label="Фільтр робіт" data-filters></div>
+      <div class="grid" data-grid aria-live="polite">
+        <noscript><p class="noscript">Каталог показується за допомогою JavaScript. Усі роботи студії — в <a href="https://www.instagram.com/nectar.flostudio/">Instagram @nectar.flostudio</a>.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ============ З ЖИТТЯ СТУДІЇ (Reels) ============ -->
+    <section class="section stories" id="stories" aria-labelledby="stories-title">
+      <header class="stories__head">
+        <div>
+          <p class="mono section__no">02 / з життя студії</p>
+          <h2 class="section__title reveal" id="stories-title">з життя студії</h2>
+        </div>
+        <div class="stories__nav">
+          <p class="mono">короткі відео з instagram</p>
+          <button class="round-btn" type="button" data-stories-prev aria-label="Попередні відео"><svg class="i" aria-hidden="true"><use href="#arrow-l"/></svg></button>
+          <button class="round-btn" type="button" data-stories-next aria-label="Наступні відео"><svg class="i" aria-hidden="true"><use href="#arrow-r"/></svg></button>
+        </div>
+      </header>
+      <ul class="stories__rail" data-stories tabindex="0" aria-label="Відео студії, гортайте вбік"></ul>
+    </section>
+
+    <!-- ============ ПІДПИСКА ============ -->
+    <section class="section sub" id="subscription" aria-labelledby="sub-title">
+      <div class="sub__inner">
+        <div class="sub__text">
+          <p class="mono section__no">03 / підписка</p>
+          <h2 class="section__title reveal" id="sub-title">квіткова підписка</h2>
+          <p class="section__lead reveal">Свіжі квіти у вашому просторі щотижнево. Два або чотири букети на місяць — за вашими побажаннями та характером.</p>
+          <fieldset class="seg reveal" data-freq>
+            <legend class="sr-only">Скільки букетів на місяць</legend>
+            <label class="seg__opt"><input type="radio" name="freq" value="2" checked><span>2 букети на місяць</span></label>
+            <label class="seg__opt"><input type="radio" name="freq" value="4"><span>4 букети на місяць</span></label>
+          </fieldset>
+          <ul class="plans" data-plans aria-live="polite"></ul>
+          <p class="fine mono" data-sub-note></p>
+          <a class="btn btn--red" href="https://ig.me/m/nectar.flostudio" target="_blank" rel="noopener" data-contact="direct">оформити підписку в direct <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>
+        </div>
+        <figure class="frame sub__media unveil">
+          <img src="assets/photos/autumn-3.jpg" width="800" height="1066" loading="lazy" alt="Стреліція з помаранчевими пелюстками на зім'ятому білому полотні в жорсткому сонячному світлі">
+          <figcaption class="cap"><span>№ 03</span> осінь у nectar</figcaption>
+          <span class="sticker sticker--round sub__sticker" aria-hidden="true">свіжі<br>щотижня</span>
+        </figure>
+        <svg class="lineart lineart--calla draw" viewBox="0 0 120 300" aria-hidden="true">
+          <path pathLength="1" d="M60 120 C 30 100, 22 60, 40 30 C 52 12, 80 8, 96 18 C 84 30, 78 52, 76 76 C 74 98, 68 112, 60 120 Z"/>
+          <path pathLength="1" d="M62 112 C 64 90, 70 60, 80 40"/>
+          <path pathLength="1" d="M60 120 C 58 180, 64 230, 58 300"/>
+          <path pathLength="1" d="M60 240 C 30 222, 16 192, 20 160 C 40 174, 56 204, 60 240"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============ ПОДІЇ / B2B ============ -->
+    <section class="section events" id="events" aria-labelledby="events-title">
+      <header class="section__head section__head--split">
+        <div>
+          <p class="mono section__no">04 / події та b2b</p>
+          <h2 class="section__title reveal" id="events-title">події, b2b,<br>фасади</h2>
+        </div>
+        <p class="section__lead reveal">Оформлюємо простори, фасади й заходи, працюємо з бізнесом. Зараз відкрито передзамовлення різдвяного декору — бронюйте дату заздалегідь.</p>
+      </header>
+      <div class="events__layout">
+        <figure class="frame events__big unveil">
+          <img src="assets/photos/xmas-1.jpg" width="800" height="1068" loading="lazy" alt="Фасад магазину, оформлений хвойною гірляндою та великим кремовим бантом із атласу">
+          <figcaption class="cap"><span>№ 04</span> оформлення фасаду, свята минулого року</figcaption>
+          <span class="sticker sticker--burst events__sticker" aria-hidden="true"><span>різдво<br>2026</span></span>
+        </figure>
+        <div class="events__list">
+          <ol class="services">
+            <li class="reveal"><span class="mono">a</span><div><h3>різдвяні вінки</h3><p>Для дверей, вітрин і столів.</p></div></li>
+            <li class="reveal"><span class="mono">b</span><div><h3>хвоя: композиції та конструкції</h3><p>Від настільних до великих інсталяцій.</p></div></li>
+            <li class="reveal"><span class="mono">c</span><div><h3>фасади та простори</h3><p>Оформлення входу, вітрини чи інтер'єру.</p></div></li>
+            <li class="reveal"><span class="mono">d</span><div><h3>корпоративні замовлення та b2b</h3><p>Регулярна співпраця з закладами та брендами.</p></div></li>
+            <li class="reveal"><span class="mono">e</span><div><h3>весілля та заходи</h3><p>Букети нареченої й оформлення подій.</p></div></li>
+          </ol>
+          <a class="btn btn--ink" href="https://ig.me/m/nectar.flostudio" target="_blank" rel="noopener" data-contact="direct">забронювати дату в direct <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>
+        </div>
+        <figure class="frame events__small unveil">
+          <img src="assets/photos/xmas-3.jpg" width="800" height="1066" loading="lazy" alt="Діджейський пульт, прикрашений сріблястою бахромою та червоними паперовими конячками, у червоному світлі">
+          <figcaption class="cap"><span>№ 05</span> декор для вечірки</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ МАЙСТЕР-КЛАСИ + КЕНЗАНИ ============ -->
+    <section class="section workshops" id="workshops" aria-labelledby="ws-title">
+      <header class="section__head">
+        <p class="mono section__no">05 / майстер-класи</p>
+        <h2 class="section__title reveal" id="ws-title">робити руками</h2>
+      </header>
+      <div class="ws">
+        <article class="ws__card">
+          <figure class="frame unveil"><img src="assets/photos/wreath-1.jpg" width="800" height="1066" loading="lazy" alt="Осінній вінок із шипшини, рогозу й сухоцвітів у руці на тлі білої стіни"></figure>
+          <div class="ws__body">
+            <p class="mono ws__tag">минулі майстер-класи · вересень–жовтень</p>
+            <h3>вінки з сухоцвітів і композиції на кензані</h3>
+            <p>Восени ми збирали вінки з локальних сухоцвітів і рогозу в @ptashka.coffee<span class="price-only"> (2 години, 2 300 грн)</span> та композиції на кензані в @bryk.space<span class="price-only"> (1,5 години, 2 500 грн)</span>. Усі матеріали входили у вартість. Про наступні майстер-класи розповідаємо в Instagram, записатися можна в Direct.</p>
+            <a class="link" href="https://www.instagram.com/nectar.flostudio/" target="_blank" rel="noopener" data-contact="instagram">стежити за анонсами <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>
+          </div>
+        </article>
+        <article class="ws__card ws__card--alt">
+          <figure class="frame unveil"><img src="assets/photos/kenzan-3.jpg" width="800" height="1066" loading="lazy" alt="Рожеві гербери та антуріуми з тонкими травинками у сталевій чаші на кензані"></figure>
+          <div class="ws__body">
+            <p class="mono ws__tag">в наявності · жовтень</p>
+            <h3>кензани для ваших композицій</h3>
+            <p>Кензани 35 мм можна придбати в студії<span class="price-only"> — 600 грн на момент публікації</span>. Також даємо кензани в оренду для особливих подій — подробиці в Direct.</p>
+            <a class="link" href="https://ig.me/m/nectar.flostudio" target="_blank" rel="noopener" data-contact="direct">запитати про кензан <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ МУДБОРД ============ -->
+    <section class="section board" aria-labelledby="board-title">
+      <header class="section__head">
+        <p class="mono section__no">06 / настрій</p>
+        <h2 class="section__title reveal" id="board-title">мудборд сезону</h2>
+      </header>
+      <div class="board__grid">
+        <figure class="pin pin--1 reveal"><img src="assets/photos/autumn-1.jpg" width="1200" height="1600" loading="lazy" alt="Гілка з червоними ягодами на зім'ятому білому полотні"><figcaption class="mono">льон і різке світло</figcaption></figure>
+        <figure class="pin pin--2 reveal"><img src="assets/photos/reels/DdnrCoOoTJ-.jpg" width="360" height="640" loading="lazy" alt="Рожева орхідея в прозорій скляній вазі в руці"><figcaption class="mono">орхідея у склі</figcaption></figure>
+        <!-- TODO(власниця): це чернетка тексту від дизайнера — замініть своїми словами -->
+        <p class="pin pin--note reveal">квіти, асфальт після дощу, зім'ятий льон і різке осіннє світло — букети, що звучать як сезон.<svg class="i" aria-hidden="true"><use href="#lily"/></svg></p>
+        <figure class="pin pin--3 reveal"><img src="assets/photos/reels/DdnrxcEoRlx.jpg" width="360" height="640" loading="lazy" alt="Осінній букет у вазі на тлі цегляної стіни"><figcaption class="mono">одеська цегла</figcaption></figure>
+        <figure class="pin pin--4 reveal"><img src="assets/photos/autumn-2.jpg" width="800" height="1066" loading="lazy" alt="Жовтий ребристий гарбуз на зім'ятому білому полотні"><figcaption class="mono">осінні форми</figcaption></figure>
+        <figure class="pin pin--5 reveal"><img src="assets/photos/reels/DdVt5gSo95A.jpg" width="360" height="640" loading="lazy" alt="Помаранчеві антуріуми на сталевому стелажі"><figcaption class="mono">антуріуми й сталь</figcaption></figure>
+        <span class="sticker sticker--pill board__sticker" aria-hidden="true">з любов'ю, nectar &lt;3</span>
+      </div>
+    </section>
+
+    <!-- ============ ЗАМОВЛЕННЯ ============ -->
+    <section class="section order" id="order" aria-labelledby="order-title">
+      <header class="section__head">
+        <p class="mono section__no">07 / замовлення</p>
+        <h2 class="section__title reveal" id="order-title">зберіть замовлення</h2>
+        <p class="section__lead reveal">Оберіть привід і настрій — ми складемо текст для Direct. Сайт нічого не надсилає й не зберігає: ви копіюєте повідомлення і самі пишете студії.</p>
+      </header>
+
+      <div class="composer" data-composer>
+        <div class="composer__form">
+          <fieldset class="composer__group">
+            <legend class="mono">1 · привід</legend>
+            <div class="chips" data-occasions></div>
+          </fieldset>
+          <fieldset class="composer__group">
+            <legend class="mono">2 · настрій і кольори</legend>
+            <div class="moods" data-moods></div>
+          </fieldset>
+          <fieldset class="composer__group">
+            <legend class="mono">3 · що потрібно</legend>
+            <div class="chips" data-formats></div>
+          </fieldset>
+          <div class="composer__group composer__date">
+            <label class="mono" for="composer-date">4 · коли (необов'язково)</label>
+            <input type="date" id="composer-date" data-date>
+          </div>
+        </div>
+        <div class="composer__note">
+          <div class="note">
+            <svg class="note__lily" aria-hidden="true"><use href="#lily"/></svg>
+            <label class="mono" for="composer-msg">ваше повідомлення — можна змінити</label>
+            <textarea id="composer-msg" rows="6" data-composer-msg></textarea>
+            <div class="note__actions">
+              <button class="btn btn--ghost" type="button" data-composer-copy>скопіювати</button>
+              <a class="btn btn--red" href="https://ig.me/m/nectar.flostudio" target="_blank" rel="noopener" data-contact="direct" data-composer-go>відкрити direct <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>
+            </div>
+            <p class="mono note__status" role="status" data-composer-status></p>
+          </div>
+        </div>
+      </div>
+
+      <ol class="steps">
+        <li class="reveal"><span class="steps__n">1</span><h3>оберіть настрій</h3><p>Роботу з каталогу або привід і кольори в конструкторі вище.</p></li>
+        <li class="reveal"><span class="steps__n">2</span><h3>напишіть у direct</h3><p>Кнопка відкриває діалог зі студією в Instagram, текст уже скопійовано.</p></li>
+        <li class="reveal"><span class="steps__n">3</span><h3>узгодимо деталі</h3><p>Підкажемо, які квіти зараз є, назвемо вартість і домовимося про час та отримання.</p></li>
+        <li class="reveal"><span class="steps__n">4</span><h3>збираємо букет</h3><p>Студія працює щодня з 10 до 19.</p></li>
+      </ol>
+
+      <div class="faq">
+        <details><summary>Скільки коштує букет?</summary><p>Вартість залежить від сезонних квітів і розміру. Напишіть у Direct, яку роботу чи настрій обрали, — назвемо ціну до оформлення замовлення.</p></details>
+        <details><summary>Чи є доставка?</summary><p>Умови доставки по Одесі, вартість і часові інтервали уточнюйте в Direct під час замовлення.</p><!-- TODO(власниця): зони, вартість, строки --></details>
+        <details><summary>Як оплатити?</summary><p>Спосіб оплати погоджується в Direct разом із деталями замовлення.</p><!-- TODO(власниця): способи оплати --></details>
+        <details><summary>Чи можна замовити букет, як на фото?</summary><p>Ми працюємо з сезонними квітами, тому кожен букет трохи інший. Зберемо схожий за настроєм, кольором і формою.</p></details>
+        <details><summary>Де знаходиться студія?</summary><p data-address>Ми в Одесі. Точну адресу підкажемо в Direct.</p></details>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <svg class="cta__lily" aria-hidden="true"><use href="#lily"/></svg>
+      <h2 class="cta__title" id="cta-title">напишіть нам —<br>зберемо ваш сезон</h2>
+      <div class="cta__actions">
+        <a class="btn btn--red btn--lg" href="https://ig.me/m/nectar.flostudio" target="_blank" rel="noopener" data-contact="direct">написати в direct <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>
+        <p class="mono">щодня з 10 до 19 · одеса</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div><p class="mono footer__label">студія</p><p>Nectar Flo Studio<br>квіткова студія, Одеса</p><p data-address-footer hidden></p></div>
+      <div><p class="mono footer__label">години</p><p>щодня з 10 до 19</p></div>
+      <div>
+        <p class="mono footer__label">зв'язок</p>
+        <ul class="footer__links" data-footer-links>
+          <li><a href="https://ig.me/m/nectar.flostudio" target="_blank" rel="noopener" data-contact="direct">instagram direct</a></li>
+          <li><a href="https://www.instagram.com/nectar.flostudio/" target="_blank" rel="noopener" data-contact="instagram">instagram</a></li>
+          <li><a href="https://www.threads.com/@nectar.flostudio" target="_blank" rel="noopener" data-contact="threads">threads</a></li>
+        </ul>
+      </div>
+      <div><p class="mono footer__label">послуги</p><p>букети · квіткова підписка · b2b · оформлення заходів і фасадів</p></div>
+    </div>
+    <div class="footer__legal">
+      <div class="footer__seller" data-seller hidden></div>
+      <p class="mono">Конфіденційність: сайт не використовує cookies, аналітику чи сторонні трекери й не збирає персональних даних. Шрифти й фото розміщені на цьому ж сайті.</p>
+    </div>
+    <p class="footer__word" aria-hidden="true">nectar</p>
+    <p class="footer__copy mono">© <span data-year>2026</span> nectar flo studio · усі фото — роботи студії</p>
+  </footer>
+
+  <a class="dock" href="https://ig.me/m/nectar.flostudio" target="_blank" rel="noopener" data-contact="direct" data-dock><svg class="i i--lily" aria-hidden="true"><use href="#lily"/></svg> замовити в direct</a>
+
+  <dialog class="sheet" data-sheet aria-labelledby="sheet-title">
+    <div class="sheet__inner">
+      <button class="sheet__close" type="button" data-sheet-close aria-label="Закрити картку">закрити</button>
+      <div class="sheet__media" data-sheet-media></div>
+      <div class="sheet__body">
+        <p class="mono sheet__meta" data-sheet-meta></p>
+        <h2 class="sheet__title" id="sheet-title" data-sheet-title>робота</h2>
+        <p class="sheet__lead" data-sheet-lead></p>
+        <ul class="sheet__list" data-sheet-list></ul>
+        <div class="sheet__price" data-sheet-price></div>
+        <div class="sheet__msg">
+          <label class="mono" for="sheet-msg">текст для direct — можна змінити</label>
+          <textarea id="sheet-msg" rows="3" data-sheet-msg></textarea>
+        </div>
+        <div class="sheet__actions">
+          <button class="btn btn--ghost" type="button" data-copy>скопіювати текст</button>
+          <a class="btn btn--red" href="https://ig.me/m/nectar.flostudio" target="_blank" rel="noopener" data-contact="direct" data-sheet-cta>написати в direct <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>
+        </div>
+        <p class="sheet__status mono" role="status" data-copy-status></p>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="assets/js/data.js?v=14"></script>
+  <script src="assets/js/main.js?v=14"></script>
+</body>
+</html>
