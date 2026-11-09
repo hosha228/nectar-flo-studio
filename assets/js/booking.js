@@ -65,8 +65,8 @@
     if (MODE === "live") { box.hidden = true; return; }
     box.hidden = false;
     box.innerHTML = MODE === "demo"
-      ? "<strong>демо-режим</strong> · зайнятість дат — приклад, заявки нікуди не надсилаються"
-      : (failed ? "календар студії тимчасово недоступний · " : "") + "оберіть дату й час — заявка відкриється в Instagram Direct з готовим текстом, а студія підтвердить дату";
+      ? "<strong>Демо</strong> Зайнятість дат — приклад, заявки нікуди не надсилаються."
+      : (failed ? "Календар студії тимчасово недоступний. " : "") + "Оберіть дату й час — заявка відкриється в Instagram Direct з готовим текстом, а студія підтвердить дату.";
     box.classList.toggle("is-demo", MODE === "demo");
   }
 
@@ -202,13 +202,13 @@
     var r = currentResource();
     if (!state.date || !r) { wrap.hidden = true; return; }
     wrap.hidden = false;
-    $("[data-slots-title]").textContent = r.slots.length > 1 ? "оберіть час монтажу — " + human(state.date) : "отримання — " + human(state.date);
+    $("[data-slots-title]").textContent = r.slots.length > 1 ? "Оберіть час монтажу — " + human(state.date) : "Отримання — " + human(state.date);
     list.innerHTML = r.slots.map(function (s) {
       var left = state.data.days[state.date][r.id][s.name] || 0;
       var sel = state.slot === s.name;
       return '<button type="button" class="slot' + (sel ? " is-sel" : "") + '" data-slot="' + esc(s.name) + '"' + (left ? "" : " disabled") + ' aria-pressed="' + sel + '">' +
         '<span class="slot__name">' + esc(s.name) + '</span><span class="slot__time">' + esc(s.from) + "–" + esc(s.to) + "</span>" +
-        '<span class="mono slot__left">' + (left ? (r.capacity > 1 ? "вільно " + left : "вільно") : "зайнято") + "</span></button>";
+        '<span class="mono slot__left">' + (left ? (r.capacity > 1 ? "Вільно " + left : "Вільно") : "Зайнято") + "</span></button>";
     }).join("");
   }
 
@@ -293,25 +293,25 @@
 
   function done(d, res) {
     var code = res && res.code;
-    $("[data-done-code]").textContent = code ? "заявка " + code : MODE === "direct" ? "залишився один крок" : "";
+    $("[data-done-code]").textContent = code ? "Заявка " + code : MODE === "direct" ? "Залишився один крок" : "";
     var title = $("[data-done-title]"), text = $("[data-done-text]"), actions = $("[data-done-actions]");
     var msg = message(d, code);
     var directBtn = '<a class="btn btn--red" href="' + esc(DIRECT) + '" target="_blank" rel="noopener" data-done-direct>' +
-      (MODE === "direct" ? "надіслати в direct" : "написати в direct") + ' <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>';
-    var icsBtn = '<a class="btn btn--ghost" href="' + ics(d, code) + '" download="nectar-' + d.date + '.ics">додати в мій календар</a>';
+      (MODE === "direct" ? "Надіслати в Direct" : "Написати в Direct") + ' <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>';
+    var icsBtn = '<a class="lnk" href="' + ics(d, code) + '" download="nectar-' + d.date + '.ics">Додати в мій календар</a>';
     if (MODE === "direct") {
-      title.textContent = "надішліть заявку в direct";
+      title.textContent = "Надішліть заявку в Direct";
       text.textContent = "Ми скопіюємо текст заявки — вставте його в Direct студії. Студія перевірить, чи вільна дата, і підтвердить її в робочий час.";
-      actions.innerHTML = directBtn + '<button class="btn btn--ghost" type="button" data-done-copy>скопіювати текст</button><pre class="bdone__msg">' + esc(msg) + "</pre>";
+      actions.innerHTML = directBtn + '<button class="lnk" type="button" data-done-copy>Скопіювати текст</button><pre class="bdone__msg">' + esc(msg) + "</pre>";
     } else {
-      title.textContent = MODE === "demo" ? "дату заброньовано (демо)" : "дату заброньовано";
+      title.textContent = MODE === "demo" ? "Дату заброньовано (демо)" : "Дату заброньовано";
       var hold = (res && res.holdHours) || state.data.holdHours || B.holdHours;
       text.textContent = human(d.date) + ", " + d.slot + " " + d.slotTime + ". Ми тримаємо цю дату " + hold + " год і звʼяжемося з вами щодня з 10 до 19. " +
         ((res && res.prepayment) || state.data.prepayment || B.prepaymentText || "");
-      actions.innerHTML = icsBtn + directBtn;
+      actions.innerHTML = directBtn + icsBtn;
     }
     var st = $("[data-done-status]");
-    var copyMsg = function () { copy(msg).then(function () { st.textContent = "текст заявки скопійовано — вставте його в direct"; }, function () { st.textContent = "виділіть текст вище й скопіюйте вручну"; }); };
+    var copyMsg = function () { copy(msg).then(function () { st.textContent = "Текст заявки скопійовано — вставте його в Direct."; }, function () { st.textContent = "Виділіть текст вище й скопіюйте вручну."; }); };
     actions.addEventListener("click", function (e) {
       if (e.target.closest("[data-done-copy]") || e.target.closest("[data-done-direct]")) copyMsg();
     });
@@ -393,7 +393,7 @@
     if (!total) return;
     box.hidden = false;
     var n = box.querySelector("[data-dec-n]");
-    box.querySelector("[data-dec-note]").textContent = MODE === "demo" ? "демо-дані" : "з календаря студії, оновлено щойно";
+    box.querySelector("[data-dec-note]").textContent = MODE === "demo" ? "Демо-дані" : "З календаря студії";
     var cur = total;
     var step = function () { cur = Math.max(free, cur - 1); n.textContent = cur; if (cur > free) setTimeout(step, 28); };
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) n.textContent = free; else step();
