@@ -19,8 +19,8 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/unbounded-300-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="assets/photos/spooky-1.jpg">
-  <link rel="stylesheet" href="assets/fonts/fonts.css?v=14">
-  <link rel="stylesheet" href="assets/css/style.css?v=14">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20">
+  <link rel="stylesheet" href="assets/css/style.css?v=20">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -67,10 +67,11 @@
           <li><a href="#stories">з життя студії</a></li>
           <li><a href="#subscription">підписка</a></li>
           <li><a href="#events">події та b2b</a></li>
-          <li><a href="#order">замовити</a></li>
+          <li><a href="#booking">бронювання</a></li>
+          
         </ul>
       </nav>
-      <a class="btn btn--red btn--sm header__cta" href="https://ig.me/m/nectar.flostudio" target="_blank" rel="noopener" data-contact="direct">написати в direct <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>
+      <a class="btn btn--red btn--sm header__cta" href="#booking">забронювати дату <svg class="i" aria-hidden="true"><use href="#arrow-down"/></svg></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>
         <span class="menu-btn__label">меню</span><span class="menu-btn__lines" aria-hidden="true"></span>
       </button>
@@ -88,8 +89,9 @@
         <li><a href="#stories"><span class="mono">02</span>з життя студії</a></li>
         <li><a href="#subscription"><span class="mono">03</span>квіткова підписка</a></li>
         <li><a href="#events"><span class="mono">04</span>події, b2b, фасади</a></li>
-        <li><a href="#workshops"><span class="mono">05</span>майстер-класи</a></li>
-        <li><a href="#order"><span class="mono">06</span>замовити</a></li>
+        <li><a href="#booking"><span class="mono">05</span>забронювати дату</a></li>
+        <li><a href="#workshops"><span class="mono">06</span>майстер-класи</a></li>
+        <li><a href="#order"><span class="mono">07</span>замовити букет</a></li>
       </ol>
     </nav>
     <div class="menu__bottom">
@@ -174,6 +176,59 @@
       </div>
     </section>
 
+    <!-- ============ ХРОНІКА СЕЗОНІВ (горизонтальна стрічка) ============ -->
+    <section class="chron" id="chronicle" aria-labelledby="chron-title" data-chron>
+      <div class="chron__sticky">
+        <header class="chron__head">
+          <div>
+            <p class="mono section__no">хроніка студії</p>
+            <h2 class="section__title reveal" id="chron-title">сезон за сезоном</h2>
+          </div>
+          <p class="mono chron__hint" aria-hidden="true">гортайте — стрічка рухається вбік →</p>
+        </header>
+        <ol class="chron__track" data-chron-track>
+          <li class="chron__item">
+            <p class="chron__when"><span class="chron__month">грудень</span><span class="mono">2025</span></p>
+            <div class="chron__imgs">
+              <img src="assets/photos/xmas-1.jpg" width="800" height="1068" loading="lazy" alt="Фасад магазину з хвойною гірляндою та великим кремовим бантом">
+              <img src="assets/photos/xmas-3.jpg" width="800" height="1066" loading="lazy" alt="Декор вечірки: срібляста бахрома й червоні паперові конячки біля діджейського пульта">
+            </div>
+            <p class="chron__cap">Різдво в закладах Одеси: фасади, вітрини й декор вечірок.</p>
+          </li>
+          <li class="chron__item">
+            <p class="chron__when"><span class="chron__month">червень</span><span class="mono">2026</span></p>
+            <div class="chron__imgs"><img src="assets/photos/wedding.jpg" width="512" height="640" loading="lazy" alt="Наречена з букетом кремових квітів і зеленого амаранту"></div>
+            <p class="chron__cap">Весільна колекція: від ніжних до графічних букетів.</p>
+          </li>
+          <li class="chron__item">
+            <p class="chron__when"><span class="chron__month">жовтень</span><span class="mono">2026</span></p>
+            <div class="chron__imgs">
+              <img src="assets/photos/spooky-2.jpg" width="800" height="1066" loading="lazy" alt="Композиція з чорним листям і рожевим антуріумом на асфальті">
+              <img src="assets/photos/pumpkin-1.jpg" width="800" height="1066" loading="lazy" alt="Композиція в гарбузі з хризантемою та червоним листям">
+            </div>
+            <p class="chron__cap">Осінні серії: «spooky», «darkcore», композиції в гарбузах, майстер-класи.</p>
+          </li>
+          <li class="chron__item">
+            <p class="chron__when"><span class="chron__month">листопад</span><span class="mono">2026</span></p>
+            <div class="chron__imgs">
+              <img src="assets/photos/dogs.jpg" width="1200" height="900" loading="lazy" alt="Дівчина в чорному пальті з осіннім букетом і чорний пудель біля старих дерев'яних дверей">
+              <img src="assets/photos/compliments.jpg" width="480" height="640" loading="lazy" alt="Букет-комплімент із рожевою герберою в білому пакуванні">
+            </div>
+            <p class="chron__cap">Букети-компліменти й передзамовлення різдвяного декору.</p>
+          </li>
+          <li class="chron__item chron__item--cta">
+            <a class="chron__cta" href="#booking">
+              <span class="chron__month">грудень</span><span class="mono">2026</span>
+              <span class="chron__ask">ваша дата?</span>
+              <span class="btn btn--ink">забронювати <svg class="i" aria-hidden="true"><use href="#arrow-down"/></svg></span>
+              <svg class="chron__lily" aria-hidden="true"><use href="#lily"/></svg>
+            </a>
+          </li>
+        </ol>
+        <div class="chron__bar" aria-hidden="true"><i data-chron-bar></i></div>
+      </div>
+    </section>
+
     <!-- ============ З ЖИТТЯ СТУДІЇ (Reels) ============ -->
     <section class="section stories" id="stories" aria-labelledby="stories-title">
       <header class="stories__head">
@@ -232,7 +287,7 @@
       <div class="events__layout">
         <figure class="frame events__big unveil">
           <img src="assets/photos/xmas-1.jpg" width="800" height="1068" loading="lazy" alt="Фасад магазину, оформлений хвойною гірляндою та великим кремовим бантом із атласу">
-          <figcaption class="cap"><span>№ 04</span> оформлення фасаду, свята минулого року</figcaption>
+          <figcaption class="cap"><span>№ 04</span> грудень 2025 · фасад магазину</figcaption>
           <span class="sticker sticker--burst events__sticker" aria-hidden="true"><span>різдво<br>2026</span></span>
         </figure>
         <div class="events__list">
@@ -243,19 +298,124 @@
             <li class="reveal"><span class="mono">d</span><div><h3>корпоративні замовлення та b2b</h3><p>Регулярна співпраця з закладами та брендами.</p></div></li>
             <li class="reveal"><span class="mono">e</span><div><h3>весілля та заходи</h3><p>Букети нареченої й оформлення подій.</p></div></li>
           </ol>
-          <a class="btn btn--ink" href="https://ig.me/m/nectar.flostudio" target="_blank" rel="noopener" data-contact="direct">забронювати дату в direct <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>
+          <a class="btn btn--red" href="#booking">забронювати дату на грудень <svg class="i" aria-hidden="true"><use href="#arrow-down"/></svg></a>
         </div>
         <figure class="frame events__small unveil">
           <img src="assets/photos/xmas-3.jpg" width="800" height="1066" loading="lazy" alt="Діджейський пульт, прикрашений сріблястою бахромою та червоними паперовими конячками, у червоному світлі">
-          <figcaption class="cap"><span>№ 05</span> декор для вечірки</figcaption>
+          <figcaption class="cap"><span>№ 05</span> грудень 2025 · декор вечірки</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <!-- ============ БРОНЮВАННЯ ДАТИ ============ -->
+    <section class="section booking" id="booking" aria-labelledby="booking-title">
+      <header class="section__head section__head--split">
+        <div>
+          <p class="mono section__no">05 / бронювання</p>
+          <h2 class="section__title reveal" id="booking-title">забронюйте<br>дату</h2>
+        </div>
+        <p class="section__lead reveal">Грудень розписується швидко. Оберіть, що оформлюємо, і вільний день у календарі — ми тримаємо дату <span data-hold>48</span> годин, поки узгоджуємо деталі з вами.</p>
+      </header>
+
+      <p class="booking__count" data-dec hidden><b data-dec-n></b><span>вільних днів для монтажу в грудні<br><small class="mono" data-dec-note></small></span></p>
+      <p class="booking__mode mono" data-booking-mode hidden></p>
+
+      <div class="booking__wrap" data-booking>
+        <ol class="stepper" aria-label="Кроки бронювання">
+          <li data-step-ind="1" aria-current="step"><span>1</span>що оформлюємо</li>
+          <li data-step-ind="2"><span>2</span>дата й час</li>
+          <li data-step-ind="3"><span>3</span>контакти</li>
+          <li data-step-ind="4"><span>4</span>готово</li>
+        </ol>
+
+        <div class="booking__grid">
+          <div class="booking__main">
+            <!-- крок 1 -->
+            <fieldset class="bstep" data-step="1">
+              <legend class="bstep__title">що оформлюємо?</legend>
+              <div class="svc" data-services></div>
+              <div class="bstep__nav"><button class="btn btn--ink" type="button" data-next disabled>далі: дата <svg class="i" aria-hidden="true"><use href="#arrow-r"/></svg></button></div>
+            </fieldset>
+
+            <!-- крок 2 -->
+            <fieldset class="bstep" data-step="2" hidden>
+              <legend class="bstep__title">оберіть день</legend>
+              <div class="cal" data-cal>
+                <div class="cal__head">
+                  <button class="round-btn" type="button" data-cal-prev aria-label="Попередній місяць"><svg class="i" aria-hidden="true"><use href="#arrow-l"/></svg></button>
+                  <p class="cal__month" data-cal-title aria-live="polite"></p>
+                  <button class="round-btn" type="button" data-cal-next aria-label="Наступний місяць"><svg class="i" aria-hidden="true"><use href="#arrow-r"/></svg></button>
+                </div>
+                <div class="cal__dow" aria-hidden="true"><span>пн</span><span>вт</span><span>ср</span><span>чт</span><span>пт</span><span>сб</span><span>нд</span></div>
+                <div class="cal__grid" role="grid" data-cal-grid></div>
+                <ul class="cal__legend mono" aria-hidden="true">
+                  <li><i class="dot dot--free"></i>вільно</li><li><i class="dot dot--few"></i>залишилось мало</li><li><i class="dot dot--full"></i>зайнято</li><li><i class="dot dot--off"></i>недоступно</li>
+                </ul>
+                <p class="cal__status mono" data-cal-status role="status"></p>
+              </div>
+              <div class="slots" data-slots hidden>
+                <p class="bstep__sub" data-slots-title>оберіть час</p>
+                <div class="slots__list" data-slots-list></div>
+              </div>
+              <div class="bstep__nav">
+                <button class="btn btn--ghost" type="button" data-back><svg class="i" aria-hidden="true"><use href="#arrow-l"/></svg> назад</button>
+                <button class="btn btn--ink" type="button" data-next disabled>далі: контакти <svg class="i" aria-hidden="true"><use href="#arrow-r"/></svg></button>
+              </div>
+            </fieldset>
+
+            <!-- крок 3 -->
+            <form class="bstep bform" data-step="3" hidden novalidate data-form>
+              <p class="bstep__title">куди й кому передзвонити</p>
+              <div class="bform__grid">
+                <label class="field"><span>Ім'я *</span><input name="name" autocomplete="name" required minlength="2"></label>
+                <label class="field"><span>Телефон *</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+380 …"></label>
+                <label class="field"><span>Telegram або Instagram</span><input name="handle" placeholder="@…"></label>
+                <label class="field"><span>Email — надішлемо підтвердження</span><input name="email" type="email" autocomplete="email"></label>
+                <label class="field" data-venue-field><span>Заклад або назва</span><input name="venue" placeholder="кав'ярня, бутик, офіс…"></label>
+                <label class="field" data-address-field><span>Адреса в Одесі</span><input name="address" autocomplete="street-address" placeholder="вулиця, будинок"></label>
+                <label class="field"><span>Обсяг</span><select name="scope" data-scope></select></label>
+                <label class="field"><span>Орієнтовний бюджет</span><select name="budget" data-budget></select></label>
+                <label class="field field--wide"><span>Побажання</span><textarea name="details" rows="4" placeholder="кольори, настрій, розміри, що вже є на місці…"></textarea></label>
+                <label class="field field--wide"><span>Посилання на референси</span><input name="refs" placeholder="Pinterest, Instagram, Google Диск…"></label>
+                <label class="hp" aria-hidden="true">Сайт <input name="website" tabindex="-1" autocomplete="off"></label>
+                <label class="check field--wide"><input type="checkbox" name="consent" required><span>Погоджуюся на обробку моїх персональних даних для розгляду заявки відповідно до <a href="privacy.html" target="_blank" rel="noopener">політики конфіденційності</a>. *</span></label>
+              </div>
+              <p class="bform__error" role="alert" data-form-error></p>
+              <div class="bstep__nav">
+                <button class="btn btn--ghost" type="button" data-back><svg class="i" aria-hidden="true"><use href="#arrow-l"/></svg> назад</button>
+                <button class="btn btn--red" type="submit" data-submit>забронювати дату <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></button>
+              </div>
+            </form>
+
+            <!-- крок 4 -->
+            <div class="bstep bdone" data-step="4" hidden tabindex="-1">
+              <svg class="bdone__lily" aria-hidden="true"><use href="#lily"/></svg>
+              <p class="mono bdone__code" data-done-code></p>
+              <h3 class="bstep__title" data-done-title>дату заброньовано</h3>
+              <p data-done-text></p>
+              <div class="bdone__actions" data-done-actions></div>
+              <p class="mono bdone__status" role="status" data-done-status></p>
+            </div>
+          </div>
+
+          <aside class="ticket" aria-label="Ваша заявка">
+            <p class="mono ticket__label">ваша заявка</p>
+            <dl class="ticket__list">
+              <div><dt>оформлення</dt><dd data-sum="service">—</dd></div>
+              <div><dt>дата</dt><dd data-sum="date">—</dd></div>
+              <div><dt>час</dt><dd data-sum="slot">—</dd></div>
+            </dl>
+            <p class="ticket__note mono">дату тримаємо <span data-hold>48</span> год · підтвердження щодня з 10 до 19</p>
+            <svg class="ticket__lily" aria-hidden="true"><use href="#lily"/></svg>
+          </aside>
+        </div>
       </div>
     </section>
 
     <!-- ============ МАЙСТЕР-КЛАСИ + КЕНЗАНИ ============ -->
     <section class="section workshops" id="workshops" aria-labelledby="ws-title">
       <header class="section__head">
-        <p class="mono section__no">05 / майстер-класи</p>
+        <p class="mono section__no">06 / майстер-класи</p>
         <h2 class="section__title reveal" id="ws-title">робити руками</h2>
       </header>
       <div class="ws">
@@ -283,7 +443,7 @@
     <!-- ============ МУДБОРД ============ -->
     <section class="section board" aria-labelledby="board-title">
       <header class="section__head">
-        <p class="mono section__no">06 / настрій</p>
+        <p class="mono section__no">07 / настрій</p>
         <h2 class="section__title reveal" id="board-title">мудборд сезону</h2>
       </header>
       <div class="board__grid">
@@ -301,8 +461,8 @@
     <!-- ============ ЗАМОВЛЕННЯ ============ -->
     <section class="section order" id="order" aria-labelledby="order-title">
       <header class="section__head">
-        <p class="mono section__no">07 / замовлення</p>
-        <h2 class="section__title reveal" id="order-title">зберіть замовлення</h2>
+        <p class="mono section__no">08 / букети</p>
+        <h2 class="section__title reveal" id="order-title">замовити букет</h2>
         <p class="section__lead reveal">Оберіть привід і настрій — ми складемо текст для Direct. Сайт нічого не надсилає й не зберігає: ви копіюєте повідомлення і самі пишете студії.</p>
       </header>
 
@@ -381,7 +541,7 @@
     </div>
     <div class="footer__legal">
       <div class="footer__seller" data-seller hidden></div>
-      <p class="mono">Конфіденційність: сайт не використовує cookies, аналітику чи сторонні трекери й не збирає персональних даних. Шрифти й фото розміщені на цьому ж сайті.</p>
+      <p class="mono">Сайт не використовує cookies, аналітику чи сторонні трекери. Дані з форми бронювання отримує лише студія — див. <a href="privacy.html">політику конфіденційності</a>.</p>
     </div>
     <p class="footer__word" aria-hidden="true">nectar</p>
     <p class="footer__copy mono">© <span data-year>2026</span> nectar flo studio · усі фото — роботи студії</p>
@@ -412,7 +572,8 @@
     </div>
   </dialog>
 
-  <script src="assets/js/data.js?v=14"></script>
-  <script src="assets/js/main.js?v=14"></script>
+  <script src="assets/js/data.js?v=20"></script>
+  <script src="assets/js/main.js?v=20"></script>
+  <script src="assets/js/booking.js?v=20"></script>
 </body>
 </html>

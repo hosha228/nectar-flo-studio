@@ -78,7 +78,9 @@
     header.classList.toggle("is-solid", y > 24);
     if (dock && hero) {
       var nearEnd = window.innerHeight + y > document.body.scrollHeight - 520;
-      dock.classList.toggle("is-on", y > hero.offsetTop + hero.offsetHeight * 0.6 && !nearEnd);
+      var bk = document.getElementById("booking"), inBooking = false;
+      if (bk) { var br = bk.getBoundingClientRect(); inBooking = br.top < window.innerHeight * 0.6 && br.bottom > window.innerHeight * 0.4; }
+      dock.classList.toggle("is-on", y > hero.offsetTop + hero.offsetHeight * 0.6 && !nearEnd && !inBooking);
     }
   }
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -373,6 +375,78 @@
       });
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
     setTimeout(function () { toReveal.forEach(function (n) { io.observe(n); }); }, introDelay);
+  }
+
+  /* ---------- побуквена поява заголовка першого екрана ---------- */
+  var h1 = $(".hero__title");
+  if (h1 && !reduceMotion) {
+    h1.setAttribute("aria-label", h1.textContent.replace(/\s+/g, " ").trim());
+    var ci = 0;
+    $$(".line", h1).forEach(function (line) {
+      line.setAttribute("aria-hidden", "true");
+      Array.prototype.slice.call(line.childNodes).forEach(function (node) {
+        if (node.nodeType !== 3) return;
+        var frag = document.createDocumentFragment();
+        node.textContent.split("").forEach(function (ch) {
+          var sp = document.createElement("span");
+          sp.className = "ch"; sp.textContent = ch; sp.style.setProperty("--i", ci++);
+          frag.appendChild(sp);
+        });
+        line.replaceChild(frag, node);
+      });
+    });
+    h1.classList.add("is-split");
+  }
+
+  /* ---------- нахил головного фото за курсором ---------- */
+  var heroMedia = $(".hero__media");
+  if (heroMedia && finePointer && !reduceMotion) {
+    var heroMain = $(".hero__main", heroMedia), heroAside = $(".hero__aside", heroMedia);
+    heroMedia.addEventListener("pointermove", function (e) {
+      var r = heroMedia.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      heroMain.style.setProperty("--rx", (-y * 5).toFixed(2) + "deg");
+      heroMain.style.setProperty("--ry", (x * 6).toFixed(2) + "deg");
+      heroAside.style.setProperty("--tx", (x * -14).toFixed(1) + "px");
+      heroAside.style.setProperty("--ty", (y * -10).toFixed(1) + "px");
+    });
+    heroMedia.addEventListener("pointerleave", function () {
+      heroMain.style.setProperty("--rx", "0deg"); heroMain.style.setProperty("--ry", "0deg");
+      heroAside.style.setProperty("--tx", "0px"); heroAside.style.setProperty("--ty", "0px");
+    });
+  }
+
+  /* ---------- хроніка: горизонтальна стрічка від вертикального скролу ---------- */
+  var chron = $("[data-chron]");
+  if (chron) {
+    var ctrack = $("[data-chron-track]", chron), cbar = $("[data-chron-bar]", chron);
+    var pinMQ = window.matchMedia("(min-width: 960px)");
+    var dist = 0;
+    var chronTick = function () {
+      if (!chron.classList.contains("is-pinned")) return;
+      var top = chron.getBoundingClientRect().top;
+      var p = Math.min(1, Math.max(0, -top / (dist || 1)));
+      ctrack.style.transform = "translate3d(" + (-p * dist).toFixed(1) + "px,0,0)";
+      if (cbar) cbar.style.transform = "scaleX(" + p.toFixed(3) + ")";
+    };
+    var chronLayout = function () {
+      var pinned = pinMQ.matches && !reduceMotion;
+      chron.classList.toggle("is-pinned", pinned);
+      if (!pinned) { chron.style.height = ""; ctrack.style.transform = ""; return; }
+      dist = Math.max(0, ctrack.scrollWidth - window.innerWidth);
+      chron.style.height = (window.innerHeight + dist) + "px";
+      chronTick();
+    };
+    var cRaf = false;
+    window.addEventListener("scroll", function () { if (cRaf) return; cRaf = true; requestAnimationFrame(function () { chronTick(); cRaf = false; }); }, { passive: true });
+    window.addEventListener("resize", chronLayout);
+    window.addEventListener("load", chronLayout);
+    chronLayout();
+    ctrack.addEventListener("scroll", function () {
+      if (chron.classList.contains("is-pinned")) return;
+      var max = ctrack.scrollWidth - ctrack.clientWidth;
+      if (cbar) cbar.style.transform = "scaleX(" + (max ? ctrack.scrollLeft / max : 0).toFixed(3) + ")";
+    }, { passive: true });
   }
 
   /* ---------- легкий паралакс штампа ---------- */

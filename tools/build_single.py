@@ -58,8 +58,14 @@ boot = (
     "window.NF_IMG = " + json.dumps(imgs) + ";\n"
     "document.querySelectorAll('img[data-nf]').forEach(function (i) { i.src = NF_IMG[i.getAttribute('data-nf')]; });\n"
 )
-scripts = "<script>\n" + boot + "</script>\n  <script>\n" + data_js + "\n</script>\n  <script>\n" + main_js + "\n</script>"
-html = re.sub(r'<script src="assets/js/data.js[^"]*"></script>\s*<script src="assets/js/main.js[^"]*"></script>', lambda m: scripts, html)
+booking_js = read("assets", "js", "booking.js")
+scripts = ("<script>\n" + boot + "</script>\n  <script>\n" + data_js + "\n</script>\n  <script>\n" + main_js +
+           "\n</script>\n  <script>\n" + booking_js + "\n</script>")
+html = re.sub(r'<script src="assets/js/data.js[^"]*"></script>\s*<script src="assets/js/main.js[^"]*"></script>\s*<script src="assets/js/booking.js[^"]*"></script>',
+              lambda m: scripts, html)
+# посилання на інші сторінки ведуть на опублікований сайт
+SITE = "https://hosha228.github.io/nectar-flo-studio/"
+html = html.replace('href="privacy.html"', 'href="%sprivacy.html"' % SITE)
 assert not re.search(r"(src|href)=\"assets/", html), "лишились зовнішні посилання на assets/"
 
 os.makedirs(DIST, exist_ok=True)
