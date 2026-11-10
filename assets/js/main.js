@@ -282,7 +282,11 @@
     var box = mast.parentElement.getBoundingClientRect().width;
     mast.style.setProperty("--mast", "100px");
     var w = mast.getBoundingClientRect().width;
-    if (w) mast.style.setProperty("--mast", Math.min(900, (100 * box / w) * 0.995).toFixed(2) + "px");
+    if (!w) return;
+    var size = Math.min(900, (100 * box / w) * 0.995).toFixed(2) + "px";
+    mast.style.setProperty("--mast", size);
+    var ftw = document.querySelector(".ft__word"); // той самий розмір у підвалі
+    if (ftw) ftw.style.fontSize = size;
   }
   fitMast();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitMast);

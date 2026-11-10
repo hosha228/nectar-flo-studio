@@ -500,7 +500,7 @@ figcaption em { font-size: 16px; color: var(--ink); }
 .ft__links a { text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .5s var(--ease); }
 .ft__links a:hover { background-size: 100% 1px; }
 .ft__seller p { font-size: 13px; color: var(--stone); }
-.ft__word { margin: clamp(40px, 6vw, 96px) 0 0; padding: 0 var(--m); font: 600 clamp(96px, 27.4vw, 470px)/.76 var(--sans); letter-spacing: -.075em; text-align: center; overflow: hidden; }
+.ft__word { max-width: var(--max); margin: clamp(40px, 6vw, 96px) auto 0; padding: 0 var(--m); font: 600 clamp(96px, 24vw, 470px)/.78 var(--sans); letter-spacing: -.055em; white-space: nowrap; overflow: hidden; }
 .ft__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 18px; padding-bottom: 24px; font-size: 12px; color: var(--stone); }
 
 /* ---------- курсор «Дивитись» ---------- */
