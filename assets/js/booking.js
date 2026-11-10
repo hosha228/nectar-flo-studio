@@ -233,6 +233,7 @@
       name: get("name"), phone: get("phone"), handle: get("handle"), email: get("email"),
       venue: get("venue"), address: get("address"), scope: get("scope"), budget: get("budget"),
       details: get("details"), refs: get("refs"), website: get("website"),
+      contact: (f.elements.contact && f.elements.contact.value) || "", contactTime: get("contactTime"),
       consent: f.elements.consent.checked,
     };
   }
@@ -244,6 +245,8 @@
     if (d.name.length < 2) bad = ["name", "Вкажіть, будь ласка, імʼя."];
     else if (!/^[+\d][\d\s()\-]{8,}$/.test(d.phone)) bad = ["phone", "Перевірте номер телефону — напр. +380 67 123 45 67."];
     else if (d.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)) bad = ["email", "Перевірте email або залиште поле порожнім."];
+    else if (d.contact === "Email" && !d.email) bad = ["email", "Вкажіть email — ви обрали його для звʼязку."];
+    else if ((d.contact === "Telegram" || d.contact === "Instagram") && !d.handle) bad = ["handle", "Вкажіть нік у Telegram чи Instagram — ви обрали цей спосіб звʼязку."];
     else if (!d.consent) bad = ["consent", "Потрібна згода на обробку даних, щоб студія могла звʼязатися з вами."];
     if (!bad) return true;
     var el = f.elements[bad[0]];
@@ -265,6 +268,7 @@
       d.details ? "Побажання: " + d.details : "",
       d.refs ? "Референси: " + d.refs : "",
       "Імʼя: " + d.name + ", тел. " + d.phone + (d.handle ? ", " + d.handle : ""),
+      d.contact ? "Звʼязок: " + d.contact.toLowerCase() + (d.contactTime ? ", " + d.contactTime : "") : "",
     ].filter(Boolean).join("\n");
   }
 
@@ -299,10 +303,12 @@
     var directBtn = '<a class="btn btn--red" href="' + esc(DIRECT) + '" target="_blank" rel="noopener" data-done-direct>' +
       (MODE === "direct" ? "Надіслати в Direct" : "Написати в Direct") + ' <svg class="i" aria-hidden="true"><use href="#arrow-ne"/></svg></a>';
     var icsBtn = '<a class="lnk" href="' + ics(d, code) + '" download="nectar-' + d.date + '.ics">Додати в мій календар</a>';
+    var EMAIL = D.contacts && D.contacts.email;
+    var mailBtn = EMAIL ? '<a class="lnk" href="mailto:' + esc(EMAIL) + "?subject=" + encodeURIComponent("Заявка на оформлення: " + human(d.date)) + "&body=" + encodeURIComponent(msg) + '">Надіслати на пошту</a>' : "";
     if (MODE === "direct") {
       title.textContent = "Надішліть заявку в Direct";
       text.textContent = "Ми скопіюємо текст заявки — вставте його в Direct студії. Студія перевірить, чи вільна дата, і підтвердить її в робочий час.";
-      actions.innerHTML = directBtn + '<button class="lnk" type="button" data-done-copy>Скопіювати текст</button><pre class="bdone__msg">' + esc(msg) + "</pre>";
+      actions.innerHTML = directBtn + mailBtn + '<button class="lnk" type="button" data-done-copy>Скопіювати текст</button><pre class="bdone__msg">' + esc(msg) + "</pre>";
     } else {
       title.textContent = MODE === "demo" ? "Дату заброньовано (демо)" : "Дату заброньовано";
       var hold = (res && res.holdHours) || state.data.holdHours || B.holdHours;

@@ -199,6 +199,8 @@
     if (!a) return;
     var inp = document.querySelector('input[name="service"][value="' + a.getAttribute("data-book-service") + '"]');
     if (inp && !inp.checked) inp.click();
+    var ref = a.getAttribute("data-book-ref"), det = document.querySelector('[data-form] [name="details"]');
+    if (ref && det && det.value.indexOf(ref) < 0) det.value = "Хочу схоже на роботу для " + ref + ". " + det.value;
   });
   renderPlans("2", false);
   var subNote = $("[data-sub-note]");
@@ -209,13 +211,15 @@
   var CP = D.composer;
   var composer = $("[data-composer]");
   if (composer && CP) {
-    var state = { occasion: null, mood: null, format: CP.formats[0], date: "" };
+    var state = { occasion: null, mood: null, format: CP.formats[0], size: null, date: "" };
     var msg = $("[data-composer-msg]", composer), status = $("[data-composer-status]", composer), touched = false;
     var opt = function (name, value, label, checked, extra) {
       return '<label class="opt"><input type="radio" name="' + name + '" value="' + esc(value) + '"' + (checked ? " checked" : "") + "><span>" + (extra || "") + esc(cap(label)) + "</span></label>";
     };
     $("[data-occasions]", composer).innerHTML = CP.occasions.map(function (o) { return opt("occasion", o, o, false); }).join("");
     $("[data-formats]", composer).innerHTML = CP.formats.map(function (f, i) { return opt("format", f, f, i === 0); }).join("");
+    var csz = $("[data-csizes]", composer);
+    if (csz && CP.sizes) csz.innerHTML = CP.sizes.map(function (z) { return opt("csize", z, z, false); }).join("");
     $("[data-moods]", composer).innerHTML = CP.moods.map(function (m) {
       var sw = '<span class="opt__sw" aria-hidden="true">' + m.colors.map(function (c) { return '<i style="background:' + esc(c) + '"></i>'; }).join("") + "</span>";
       return opt("mood", m.id, m.label, false, sw);
@@ -225,6 +229,7 @@
       var first = "Привіт! Хочу замовити " + state.format + (state.occasion ? " — привід: " + state.occasion : "") + ".";
       var parts = [first];
       if (mood) parts.push(mood.id === "any" ? "Кольори — на ваш смак." : "Настрій і кольори: " + mood.label + ".");
+      if (state.size) parts.push(state.size === "порадьте" ? "Розмір — порадьте." : "Розмір: " + state.size + ".");
       if (state.date) parts.push("Дата: " + new Date(state.date + "T12:00:00").toLocaleDateString("uk-UA", { day: "numeric", month: "long" }) + ".");
       parts.push("Бюджет: … ");
       return parts.join("\n");
@@ -235,6 +240,7 @@
       if (t.name === "occasion") state.occasion = t.value;
       if (t.name === "mood") state.mood = t.value;
       if (t.name === "format") state.format = t.value;
+      if (t.name === "csize") state.size = t.value;
       if (t.hasAttribute && t.hasAttribute("data-date")) state.date = t.value;
       if (t !== msg) { touched = false; update(); }
     });
@@ -243,6 +249,67 @@
     var cOk = function () { status.textContent = "Текст скопійовано — вставте його в Direct."; };
     $("[data-composer-copy]", composer).addEventListener("click", function () { copyText(msg.value, msg).then(cOk, function () { status.textContent = "Не вдалося скопіювати — виділіть текст вручну."; }); });
     $("[data-composer-go]", composer).addEventListener("click", function () { copyText(msg.value, msg).then(cOk, function () {}); });
+  }
+
+  /* ---------- пошта студії (з'являється, коли вписана в data.js) ---------- */
+  if (C.email) $$("[data-email]").forEach(function (a) {
+    a.href = "mailto:" + C.email; a.textContent = C.email;
+    var li = a.closest("[hidden]"); if (li) li.hidden = false;
+  });
+
+  /* ---------- розміри букетів: приклади зі сторіс ---------- */
+  var SZ = D.sizes, szRow = $("[data-size-row]"), szTabs = $("[data-size-tabs]");
+  function showSize(k) {
+    if (!SZ || !szRow || !SZ[k]) return;
+    szRow.innerHTML = SZ[k].photos.map(function (p, i) {
+      return '<figure style="--i:' + i + '"><img src="' + esc(photo(p.src)) + '" width="640" height="1138" loading="lazy" tabindex="0" alt="' + esc(p.alt) + '"></figure>';
+    }).join("");
+    $$(".sz", szTabs).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-size") === k ? "true" : "false"); });
+    var note = $("[data-size-note]"); if (note) note.textContent = SZ[k].note;
+  }
+  if (SZ && szTabs) {
+    szTabs.innerHTML = Object.keys(SZ).map(function (k) { return '<button class="sz" type="button" data-size="' + k + '" aria-pressed="false" aria-label="Розмір ' + k + '">' + k + "</button>"; }).join("");
+    szTabs.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-size]"); if (!b) return;
+      var k = b.getAttribute("data-size"); showSize(k);
+      var r = document.querySelector('input[name="csize"][value="' + k + '"]'); if (r && !r.checked) r.click();
+    });
+    showSize("M");
+  }
+
+  /* ---------- перегляд фото на весь екран ---------- */
+  var lb = $("[data-lbox]");
+  if (lb && lb.showModal) {
+    var lbImg = $("img", lb), lbCap = $("[data-lb-cap]", lb), lbCount = $("[data-lb-count]", lb), lbList = [], lbIdx = 0;
+    var lbShow = function (i) {
+      lbIdx = (i + lbList.length) % lbList.length;
+      var im = lbList[lbIdx];
+      lbImg.src = im.currentSrc || im.src; lbImg.alt = im.alt;
+      var fig = im.closest("figure"), fc = fig && fig.querySelector("figcaption");
+      lbCap.textContent = fc ? fc.textContent : im.alt;
+      lbCount.textContent = (lbIdx + 1) + " / " + lbList.length + " ·";
+    };
+    var lbOpen = function (im) { lbList = $$("img", im.closest("[data-lb]")); lbShow(lbList.indexOf(im)); lb.showModal(); };
+    $$("[data-lb] img").forEach(function (im) { im.tabIndex = 0; });
+    document.addEventListener("click", function (e) { var im = e.target.closest && e.target.closest("[data-lb] img"); if (im) lbOpen(im); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Enter" && e.target.matches && e.target.matches("[data-lb] img")) lbOpen(e.target); });
+    $("[data-lb-prev]", lb).addEventListener("click", function () { lbShow(lbIdx - 1); });
+    $("[data-lb-next]", lb).addEventListener("click", function () { lbShow(lbIdx + 1); });
+    $("[data-lb-close]", lb).addEventListener("click", function () { lb.close(); });
+    lb.addEventListener("click", function (e) { if (e.target === lb || e.target.classList.contains("lb__stage")) lb.close(); });
+    lb.addEventListener("keydown", function (e) { if (e.key === "ArrowLeft") lbShow(lbIdx - 1); if (e.key === "ArrowRight") lbShow(lbIdx + 1); });
+  }
+
+  /* ---------- список послуг: фото, що «виглядає» за курсором ---------- */
+  var peek = $("[data-peek]");
+  if (peek && finePointer && !reduceMotion) {
+    var pimg = $("img", peek);
+    var pmove = function (e) { peek.style.setProperty("--x", e.clientX + "px"); peek.style.setProperty("--y", e.clientY + "px"); };
+    $$(".index li[data-img]").forEach(function (li) {
+      li.addEventListener("pointerenter", function (e) { pimg.src = photo(li.getAttribute("data-img")); pmove(e); peek.classList.add("is-on"); });
+      li.addEventListener("pointerleave", function () { peek.classList.remove("is-on"); });
+      li.addEventListener("pointermove", pmove, { passive: true });
+    });
   }
 
   /* ---------- меню ---------- */

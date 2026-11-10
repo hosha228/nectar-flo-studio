@@ -66,6 +66,7 @@ html = re.sub(r'<script src="assets/js/data.js[^"]*"></script>\s*<script src="as
 # посилання на інші сторінки ведуть на опублікований сайт
 SITE = "https://hosha228.github.io/nectar-flo-studio/"
 html = html.replace('href="privacy.html"', 'href="%sprivacy.html"' % SITE)
+html = html.replace('href="terms.html"', 'href="%sterms.html"' % SITE)
 assert not re.search(r"(src|href)=\"assets/", html), "лишились зовнішні посилання на assets/"
 
 os.makedirs(DIST, exist_ok=True)

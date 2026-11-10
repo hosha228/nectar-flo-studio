@@ -29,7 +29,7 @@ var STATUS = {
 var STATUS_LIST = [STATUS.NEW, STATUS.CONFIRMED, STATUS.PAID, STATUS.DONE, STATUS.CANCELLED, STATUS.EXPIRED];
 
 var COLS = ['Створено', 'Код', 'Статус', 'Дата', 'Час', 'Послуга', "Ім'я", 'Телефон', 'Telegram / Instagram',
-  'Email', 'Заклад / назва', 'Адреса', 'Обсяг', 'Бюджет', 'Побажання', 'Референси', 'Згода на обробку даних',
+  'Email', 'Як звʼязатися', 'Заклад / назва', 'Адреса', 'Обсяг', 'Бюджет', 'Побажання', 'Референси', 'Згода на обробку даних',
   'ID події', 'Нотатки студії'];
 var C = {}; COLS.forEach(function (h, i) { C[h] = i + 1; });
 
@@ -154,6 +154,7 @@ function doPost(e) {
     row[C['Телефон'] - 1] = clean_(data.phone, 30); // clean_ додає «'» перед «+», щоб таблиця не вважала номер формулою
     row[C['Telegram / Instagram'] - 1] = clean_(data.handle, 80);
     row[C['Email'] - 1] = clean_(data.email, 120);
+    row[C['Як звʼязатися'] - 1] = clean_((data.contact || '') + (data.contactTime ? ', ' + data.contactTime : ''), 120);
     row[C['Заклад / назва'] - 1] = clean_(data.venue, 120);
     row[C['Адреса'] - 1] = clean_(data.address, 200);
     row[C['Обсяг'] - 1] = clean_(data.scope, 120);
@@ -323,6 +324,7 @@ function describe_(r) {
     'Телефон: ' + String(r[C['Телефон'] - 1]).replace(/^'/, ''),
     'Telegram / Instagram: ' + (r[C['Telegram / Instagram'] - 1] || '—'),
     'Email: ' + (r[C['Email'] - 1] || '—'),
+    'Як звʼязатися: ' + (r[C['Як звʼязатися'] - 1] || '—'),
     'Заклад: ' + (r[C['Заклад / назва'] - 1] || '—'),
     'Адреса: ' + (r[C['Адреса'] - 1] || '—'),
     'Обсяг: ' + (r[C['Обсяг'] - 1] || '—'),
