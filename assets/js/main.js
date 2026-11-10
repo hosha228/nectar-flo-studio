@@ -181,14 +181,25 @@
   var plans = $("[data-plans]");
   var SUB = D.subscription;
   var SIZE_NAME = { S: ["Компактний", "для столу чи полиці"], M: ["Середній", "для дому й ресепшн"], L: ["Великий", "для залу чи вітрини"] };
+  // реальні приклади розмірів — з Highlights студії «bouquets S / M / L»
+  var SIZE_IMG = { S: ["stories/bS-1.jpg", "Приклад букета розміру S"], M: ["stories/bM-1.jpg", "Приклад букета розміру M"], L: ["stories/bL-1.jpg", "Приклад букета розміру L"] };
   function renderPlans(freq, animate) {
     if (!plans || !SUB) return;
     plans.innerHTML = SUB.sizes.map(function (p) {
       var nm = SIZE_NAME[p.size] || [p.size, ""];
+      var im = SIZE_IMG[p.size];
       var right = SHOW_PRICES ? (freq === "4" ? p.per4 : p.per2) + " грн<small>на місяць</small>" : freq + " букети<small>на місяць</small>";
-      return '<li class="plan"><span class="plan__size">' + esc(p.size) + '</span><span class="plan__name">' + esc(nm[0]) + "<small>" + esc(nm[1]) + '</small></span><span class="plan__price' + (animate ? " is-swap" : "") + '">' + right + "</span></li>";
+      return '<li class="plan">' + (im ? '<img class="plan__img" src="' + esc(photo(im[0])) + '" width="640" height="1138" loading="lazy" alt="' + esc(im[1]) + '">' : "") +
+        '<span class="plan__size">' + esc(p.size) + '</span><span class="plan__name">' + esc(nm[0]) + "<small>" + esc(nm[1]) + '</small></span><span class="plan__price' + (animate ? " is-swap" : "") + '">' + right + "</span></li>";
     }).join("");
   }
+  // «Замовити вінок» → одразу обирає послугу в бронюванні
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("[data-book-service]");
+    if (!a) return;
+    var inp = document.querySelector('input[name="service"][value="' + a.getAttribute("data-book-service") + '"]');
+    if (inp && !inp.checked) inp.click();
+  });
   renderPlans("2", false);
   var subNote = $("[data-sub-note]");
   if (subNote) subNote.textContent = SHOW_PRICES && SUB ? "Ціни з допису від " + SUB.posted + ". Актуальні — у Direct." : "Вартість і склад букетів підписки — у Direct.";
